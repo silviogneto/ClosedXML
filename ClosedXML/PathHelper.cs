@@ -216,19 +216,17 @@ namespace ClosedXML
             return true;
         }
 
-        public static string CreateDirectory(string path)
+        public static string CreateDirectory(String path, Boolean recursive = true)
         {
-            try
+            if (string.IsNullOrWhiteSpace(path))
+                return string.Empty;
+
+            if (!Directory.Exists(path))
             {
-                var info = new DirectoryInfo(path);
-                if (!info.Exists)
-                {
-                    info.Create();
-                }
+                CreateDirectory(Path.GetDirectoryName(path), recursive);
+                Directory.CreateDirectory(path);
             }
-            catch
-            {
-            }
+
             return path;
         }
 
