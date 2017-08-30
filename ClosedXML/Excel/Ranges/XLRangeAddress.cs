@@ -10,14 +10,16 @@ namespace ClosedXML.Excel
     {
         #region Private fields
 
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)] private XLAddress _firstAddress;
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)] private XLAddress _lastAddress;
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private XLAddress _firstAddress;
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private XLAddress _lastAddress;
 
         #endregion
 
         #region Constructor
 
-        public XLRangeAddress(XLRangeAddress rangeAddress): this(rangeAddress.FirstAddress, rangeAddress.LastAddress)
+        public XLRangeAddress(XLRangeAddress rangeAddress) : this(rangeAddress.FirstAddress, rangeAddress.LastAddress)
         {
 
         }
@@ -142,12 +144,17 @@ namespace ClosedXML.Excel
         public String ToStringRelative(Boolean includeSheet)
         {
             if (includeSheet)
-                return String.Format("{0}!{1}:{2}",
+                return String.Concat(
                     Worksheet.Name.WrapSheetNameInQuotesIfRequired(),
+                    '!',
                     _firstAddress.ToStringRelative(),
+                    ':',
                     _lastAddress.ToStringRelative());
-
-            return _firstAddress.ToStringRelative() + ":" + _lastAddress.ToStringRelative();
+            else
+                return string.Concat(
+                    _firstAddress.ToStringRelative(),
+                    ":",
+                    _lastAddress.ToStringRelative());
         }
 
         public String ToStringFixed(XLReferenceStyle referenceStyle)

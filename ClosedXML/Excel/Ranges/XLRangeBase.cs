@@ -1581,7 +1581,12 @@ namespace ClosedXML.Excel
 
         public override string ToString()
         {
-            return String.Format("{0}!{1}:{2}", Worksheet.Name.WrapSheetNameInQuotesIfRequired(), RangeAddress.FirstAddress, RangeAddress.LastAddress);
+            return String.Concat(
+                Worksheet.Name.WrapSheetNameInQuotesIfRequired(),
+                '!',
+                RangeAddress.FirstAddress,
+                ':',
+                RangeAddress.LastAddress);
         }
 
         protected void ShiftColumns(IXLRangeAddress thisRangeAddress, XLRange shiftedRange, int columnsShifted)

@@ -11,7 +11,7 @@ namespace ClosedXML.Extensions
         internal static String WrapSheetNameInQuotesIfRequired(this String sheetName)
         {
             if (sheetName.Contains(' '))
-                return "'" + sheetName + "'";
+                return string.Concat('\'', sheetName, '\'');
             else
                 return sheetName;
         }

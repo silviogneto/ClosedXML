@@ -656,33 +656,33 @@ namespace ClosedXML.Excel
             return targetSheet;
         }
 
-        private String ReplaceRelativeSheet(string newSheetName, String value)
-        {
-            if (String.IsNullOrWhiteSpace(value)) return value;
+        //private String ReplaceRelativeSheet(string newSheetName, String value)
+        //{
+        //    if (String.IsNullOrWhiteSpace(value)) return value;
 
-            var newValue = new StringBuilder();
-            var addresses = value.Split(',');
-            foreach (var address in addresses)
-            {
-                var pair = address.Split('!');
-                if (pair.Length == 2)
-                {
-                    String sheetName = pair[0];
-                    if (sheetName.StartsWith("'"))
-                        sheetName = sheetName.Substring(1, sheetName.Length - 2);
+        //    var newValue = new StringBuilder();
+        //    var addresses = value.Split(',');
+        //    foreach (var address in addresses)
+        //    {
+        //        var pair = address.Split('!');
+        //        if (pair.Length == 2)
+        //        {
+        //            String sheetName = pair[0];
+        //            if (sheetName.StartsWith("'"))
+        //                sheetName = sheetName.Substring(1, sheetName.Length - 2);
 
-                    String name = sheetName.ToLower().Equals(Name.ToLower())
-                                      ? newSheetName
-                                      : sheetName;
-                    newValue.Append(String.Format("{0}!{1}", name.WrapSheetNameInQuotesIfRequired(), pair[1]));
-                }
-                else
-                {
-                    newValue.Append(address);
-                }
-            }
-            return newValue.ToString();
-        }
+        //            String name = sheetName.ToLower().Equals(Name.ToLower())
+        //                              ? newSheetName
+        //                              : sheetName;
+        //            newValue.Append(String.Format("{0}!{1}", name.WrapSheetNameInQuotesIfRequired(), pair[1]));
+        //        }
+        //        else
+        //        {
+        //            newValue.Append(address);
+        //        }
+        //    }
+        //    return newValue.ToString();
+        //}
 
         public new IXLHyperlinks Hyperlinks { get; private set; }
 
