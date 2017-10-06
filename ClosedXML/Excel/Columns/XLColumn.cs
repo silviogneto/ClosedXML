@@ -1,3 +1,4 @@
+using ClosedXML.Excel.Misc;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -29,7 +30,7 @@ namespace ClosedXML.Excel
 
             IsReference = xlColumnParameters.IsReference;
             if (IsReference)
-                SubscribeToShiftedColumns((range, columnsShifted) => this.WorksheetRangeShiftedColumns(range, columnsShifted));
+                SubscribeToShiftedColumns(WorksheetRangeShiftedColumns);
             else
             {
                 SetStyle(xlColumnParameters.DefaultStyleId);
@@ -46,7 +47,7 @@ namespace ClosedXML.Excel
             _width = column._width;
             IsReference = column.IsReference;
             if (IsReference)
-                SubscribeToShiftedColumns((range, columnsShifted) => this.WorksheetRangeShiftedColumns(range, columnsShifted));
+                SubscribeToShiftedColumns(WorksheetRangeShiftedColumns);
             _collapsed = column._collapsed;
             _isHidden = column._isHidden;
             _outlineLevel = column._outlineLevel;
@@ -662,10 +663,10 @@ namespace ClosedXML.Excel
             return Range(1, 1, XLHelper.MaxRowNumber, 1);
         }
 
-        private void WorksheetRangeShiftedColumns(XLRange range, int columnsShifted)
+        private void WorksheetRangeShiftedColumns(object sender, RangeShiftedEventArgs e)
         {
-            if (range.RangeAddress.FirstAddress.ColumnNumber <= ColumnNumber())
-                SetColumnNumber(ColumnNumber() + columnsShifted);
+            if (e.Range.RangeAddress.FirstAddress.ColumnNumber <= ColumnNumber())
+                SetColumnNumber(ColumnNumber() + e.Shifted);
         }
 
         private void SetColumnNumber(int column)
