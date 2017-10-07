@@ -8,7 +8,9 @@ using System.Reflection;
 namespace WeakEvent
 {
     public class WeakEventSource<TEventArgs>
+#if _NET40_ || _NET35_
         where TEventArgs : EventArgs
+#endif
     {
         private readonly List<WeakDelegate> _handlers;
 
@@ -23,8 +25,7 @@ namespace WeakEvent
             {
                 var failedHandlers = _handlers
                     .ToArray()
-                    .Where(h => !h.Invoke(sender, e))
-                    .ToArray();
+                    .Where(h => !h.Invoke(sender, e));
 
                 foreach (var h in failedHandlers)
                     _handlers.Remove(h);
