@@ -60,7 +60,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FastMember.Signed" Version="1.1.0" />
+    <PackageReference Include="FastMember" Version="1.1.0" />
     <PackageReference Include="MetadataExtractor" Version="2.0.0" />
+    <PackageReference Include="ThomasLevesque.WeakEvent" Version="2.1.0" />
   </ItemGroup>
 </Project>
