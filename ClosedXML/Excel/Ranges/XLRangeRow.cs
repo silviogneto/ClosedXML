@@ -335,7 +335,7 @@ namespace ClosedXML.Excel
 
         #endregion
 
-        public new IXLRangeRow Clear(XLClearOptions clearOptions = XLClearOptions.ContentsAndFormats)
+        public new IXLRangeRow Clear(XLClearOptions clearOptions = XLClearOptions.All)
         {
             base.Clear(clearOptions);
             return this;

@@ -188,7 +188,7 @@ namespace ClosedXML.Excel
         /// Clears the contents of this row.
         /// </summary>
         /// <param name="clearOptions">Specify what you want to clear.</param>
-        new IXLRow Clear(XLClearOptions clearOptions = XLClearOptions.ContentsAndFormats);
+        new IXLRow Clear(XLClearOptions clearOptions = XLClearOptions.All);
 
         IXLRangeRow RowUsed(Boolean includeFormats = false);
     }

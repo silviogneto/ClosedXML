@@ -139,7 +139,7 @@ namespace ClosedXML.Excel
             }
         }
 
-        public new IXLColumn Clear(XLClearOptions clearOptions = XLClearOptions.ContentsAndFormats)
+        public new IXLColumn Clear(XLClearOptions clearOptions = XLClearOptions.All)
         {
             base.Clear(clearOptions);
             return this;

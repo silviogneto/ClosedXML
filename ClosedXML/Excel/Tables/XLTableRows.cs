@@ -61,7 +61,7 @@ namespace ClosedXML.Excel
 
         #region IXLTableRows Members
 
-        public IXLTableRows Clear(XLClearOptions clearOptions = XLClearOptions.ContentsAndFormats)
+        public IXLTableRows Clear(XLClearOptions clearOptions = XLClearOptions.All)
         {
             _ranges.ForEach(r => r.Clear(clearOptions));
             return this;

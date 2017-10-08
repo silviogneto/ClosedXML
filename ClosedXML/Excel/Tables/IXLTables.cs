@@ -13,7 +13,7 @@ namespace ClosedXML.Excel
         /// Clears the contents of these tables.
         /// </summary>
         /// <param name="clearOptions">Specify what you want to clear.</param>
-        IXLTables Clear(XLClearOptions clearOptions = XLClearOptions.ContentsAndFormats);
+        IXLTables Clear(XLClearOptions clearOptions = XLClearOptions.All);
 
         void Remove(Int32 index);
         void Remove(String name);

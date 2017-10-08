@@ -19,7 +19,7 @@ namespace ClosedXML.Excel
         /// Clears the contents of this row.
         /// </summary>
         /// <param name="clearOptions">Specify what you want to clear.</param>
-        new IXLTableRow Clear(XLClearOptions clearOptions = XLClearOptions.ContentsAndFormats);
+        new IXLTableRow Clear(XLClearOptions clearOptions = XLClearOptions.All);
 
         new IXLTableRows InsertRowsAbove(int numberOfRows);
         new IXLTableRows InsertRowsBelow(int numberOfRows);

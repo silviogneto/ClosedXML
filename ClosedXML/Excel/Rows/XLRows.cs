@@ -257,7 +257,7 @@ namespace ClosedXML.Excel
             _rows.Add(row);
         }
 
-        public IXLRows Clear(XLClearOptions clearOptions = XLClearOptions.ContentsAndFormats)
+        public IXLRows Clear(XLClearOptions clearOptions = XLClearOptions.All)
         {
             _rows.ForEach(c => c.Clear(clearOptions));
             return this;

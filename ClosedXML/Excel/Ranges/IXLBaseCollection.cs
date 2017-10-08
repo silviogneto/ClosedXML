@@ -72,6 +72,6 @@ namespace ClosedXML.Excel
         /// Clears the contents of these ranges.
         /// </summary>
         /// <param name="clearOptions">Specify what you want to clear.</param>
-        TMultiple Clear(XLClearOptions clearOptions = XLClearOptions.ContentsAndFormats);
+        TMultiple Clear(XLClearOptions clearOptions = XLClearOptions.All);
     }
 }

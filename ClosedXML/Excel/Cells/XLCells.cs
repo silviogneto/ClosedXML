@@ -196,7 +196,7 @@ namespace ClosedXML.Excel
         }
 
 
-        public IXLCells Clear(XLClearOptions clearOptions = XLClearOptions.ContentsAndFormats)
+        public IXLCells Clear(XLClearOptions clearOptions = XLClearOptions.All)
         {
             this.ForEach<XLCell>(c => c.Clear(clearOptions));
             return this;

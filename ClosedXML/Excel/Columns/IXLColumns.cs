@@ -118,7 +118,7 @@ namespace ClosedXML.Excel
         /// Clears the contents of these columns.
         /// </summary>
         /// <param name="clearOptions">Specify what you want to clear.</param>
-        IXLColumns Clear(XLClearOptions clearOptions = XLClearOptions.ContentsAndFormats);
+        IXLColumns Clear(XLClearOptions clearOptions = XLClearOptions.All);
 
         void Select();
     }

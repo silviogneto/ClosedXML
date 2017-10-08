@@ -374,10 +374,10 @@ namespace ClosedXML.Excel
             return asRange;
         }
 
-        public IXLRangeBase Clear(XLClearOptions clearOptions = XLClearOptions.ContentsAndFormats)
+        public IXLRangeBase Clear(XLClearOptions clearOptions = XLClearOptions.All)
         {
-            var includeFormats = clearOptions == XLClearOptions.Formats ||
-                                 clearOptions == XLClearOptions.ContentsAndFormats;
+            var includeFormats = clearOptions.HasFlag(XLClearOptions.NormalFormats) ||
+                                 clearOptions.HasFlag(XLClearOptions.ConditionalFormats);
             foreach (var cell in CellsUsed(includeFormats))
             {
                 (cell as XLCell).Clear(clearOptions, true);
@@ -388,7 +388,7 @@ namespace ClosedXML.Excel
                 ClearMerged();
             }
 
-            if (clearOptions == XLClearOptions.ContentsAndFormats)
+            if (clearOptions == XLClearOptions.All)
             {
                 Worksheet.Internals.CellsCollection.RemoveAll(
                     RangeAddress.FirstAddress.RowNumber,

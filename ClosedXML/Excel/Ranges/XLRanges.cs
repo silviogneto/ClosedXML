@@ -18,7 +18,7 @@ namespace ClosedXML.Excel
 
         #region IXLRanges Members
 
-        public IXLRanges Clear(XLClearOptions clearOptions = XLClearOptions.ContentsAndFormats)
+        public IXLRanges Clear(XLClearOptions clearOptions = XLClearOptions.All)
         {
             _ranges.ForEach(c => c.Clear(clearOptions));
             return this;

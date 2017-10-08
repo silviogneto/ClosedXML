@@ -91,7 +91,7 @@ namespace ClosedXML.Excel
 
         #endregion
 
-        public new IXLTableRow Clear(XLClearOptions clearOptions = XLClearOptions.ContentsAndFormats)
+        public new IXLTableRow Clear(XLClearOptions clearOptions = XLClearOptions.All)
         {
             base.Clear(clearOptions);
             return this;

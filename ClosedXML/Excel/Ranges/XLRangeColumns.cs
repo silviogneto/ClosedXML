@@ -19,7 +19,7 @@ namespace ClosedXML.Excel
 
         #region IXLRangeColumns Members
 
-        public IXLRangeColumns Clear(XLClearOptions clearOptions = XLClearOptions.ContentsAndFormats)
+        public IXLRangeColumns Clear(XLClearOptions clearOptions = XLClearOptions.All)
         {
             _ranges.ForEach(c => c.Clear(clearOptions));
             return this;

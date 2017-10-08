@@ -266,7 +266,7 @@ namespace ClosedXML.Excel
             _columns.ForEach(c => c.Collapsed = true);
         }
 
-        public IXLColumns Clear(XLClearOptions clearOptions = XLClearOptions.ContentsAndFormats)
+        public IXLColumns Clear(XLClearOptions clearOptions = XLClearOptions.All)
         {
             _columns.ForEach(c=>c.Clear(clearOptions));
             return this;

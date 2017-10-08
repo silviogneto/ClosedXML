@@ -514,7 +514,7 @@ namespace ClosedXML.Excel
             return DataRange.Sort(toSortBy.ToString(0, toSortBy.Length - 1), sortOrder, matchCase, ignoreBlanks);
         }
 
-        public new IXLTable Clear(XLClearOptions clearOptions = XLClearOptions.ContentsAndFormats)
+        public new IXLTable Clear(XLClearOptions clearOptions = XLClearOptions.All)
         {
             base.Clear(clearOptions);
             return this;
