@@ -1,9 +1,12 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+
+#if !_NET35_
+using System.Collections.Concurrent;
+#endif
 
 namespace WeakEvent
 {
@@ -55,7 +58,7 @@ namespace WeakEvent
             }
         }
 
-        class WeakDelegate
+        private class WeakDelegate
         {
             #region Open handler generation and cache
 
@@ -92,7 +95,7 @@ namespace WeakEvent
                 }
             }
 
-            #endregion
+            #endregion Open handler generation and cache
 
             private readonly WeakReference _weakTarget;
             private readonly MethodInfo _method;
